@@ -1,0 +1,721 @@
+<meta charset="UTF-8"> 
+
+<h2>Aula 6 - Execute códigos diferentes depedendo da condição</h2>
+
+<script>
+    
+    function pulaLinha() {
+      document.write("<br><br>");
+    };
+  
+    function HTML(texto) {
+      document.write(texto);
+      pulaLinha();
+    };
+
+    var vitorias = prompt("Entre com o número de vitórias (1º teste)"); // Utilizar 3 para o teste
+    var empates = prompt("Entre com o número de empates (1º teste)"); // Utilizar 1 para o teste
+
+    var pontos = (vitorias * 3) + empates;
+
+    HTML("A pontuação do seu time é " + pontos) // Resultado retorna errado, pois o JavaScript sempre lê o comando de prompt como um texto.
+    // Quando esse "texto" é multiplicado, dividido ou subtraído, ele consegue entender que se trata de um número e executa a operação matemática.
+    // Entretanto, quando há uma adição, ele entende que é para executar a CONCATENAÇÃO e apenas "junta" os valores informados
+
+    var vitorias = parseInt(prompt("Entre com o número de vitórias (2º teste)"));
+    var empates = parseInt(prompt("Entre com o número de empates (2º teste)"));
+
+    var pontos = (vitorias * 3) + empates;
+
+    HTML("A pontuação do seu time é " + pontos + ". No ano passado, seu time fez 28 pontos.") 
+    // Comando "parseInt" serve para que o JS saiba que tem que interpretar a informação inserida como um número
+    
+    // Se maior que 28 pontos, exibir essa mensagem:
+    if(pontos > 28) {
+      HTML("Seu time está melhor do que o ano passado");
+    }
+
+    // Se igual a 28 pontos, exibir essam mensagem:
+    if(pontos == 28) {
+      HTML("Seu time está igual ao ano passado");
+    }
+    
+    // Se menor que 28 pontos, exibir essa mensagem:
+    if(pontos < 28) {
+      HTML("Seu time está pior do que o ano passado");
+    }
+
+</script><br>
+
+<!--Símbolos matemáticos:
++ Adição
+- Subtração
+/ Divisão
+* Multiplicação
+> Maior que 
+>= Maior ou igual a 
+< Menor que
+<= Menor ou igual a
+!= Diferente de
+== Igual a -->
+
+<meta charset="UTF-8">
+<script>
+       function pulaLinha() {
+      document.write("<br><br>");
+    };
+  
+  function HTML(texto) {
+      document.write(texto);
+      pulaLinha();
+    };
+
+  function calculaImc(peso, altura) {
+      return peso / (altura * altura);
+    };
+
+ var nome = prompt("Informe seu nome");
+ var alturaInformada =  prompt("Informe sua altura");
+ var pesoInformado =  prompt("Informe seu peso");
+ var imcUsuário = calculaImc(65, 1.68);
+
+ HTML(nome +", o seu IMC é " + imcUsuário);
+
+ if(imcUsuário < 18.5) {
+      HTML("Você está abaixo do recomendado");
+  }
+
+  // Quando um valor está intermediário a outros dois:
+  if(imcUsuário >= 18.5) {
+    if(imcUsuário <= 35) {
+      HTML("Seu IMC está excelente!");
+    }
+  }
+  // Uma outra forma de escrever essa mesma função, e usando:
+  // if(imcUsuário >= 18.5 && imcUsuário <= 35) { HTML("Seu IMC está excelente!")}
+    
+  if(imcUsuário > 35) {
+    HTML("Você está acima do recomendado");
+  }
+
+</script>
+<br>
+
+<meta charset="UTF-8">
+<script>
+       function pulaLinha() {
+      document.write("<br><br>");
+    };
+  
+  function HTML(texto) {
+      document.write(texto);
+      pulaLinha();
+    };
+
+ var numeroPensado = 5;
+ var chute = parseInt(prompt("Digite seu chute! (Número Fixo)"));
+
+ if(chute == numeroPensado) {
+  document.write("Você acertou!");
+ };
+ if(chute != numeroPensado) {
+  document.write("Você errou! O número pensado foi " + numeroPensado)
+ }
+
+// Quando houver somente uma condição contrária (é ou não é), pode-se usar o comando "else", no lugar do if novamente.
+// Ficaria da seguinte forma:
+// if(chute == numeroPensado) {document.write("Você acertou!");} else {document.write("Você errou! O número pensado foi " + numeroPensado);};
+
+</script>
+<br>
+
+<meta charset="UTF-8">
+<script>
+       function pulaLinha() {
+      document.write("<br><br>");
+    };
+  
+  function HTML(texto) {
+      document.write(texto);
+      pulaLinha();
+    };
+
+ // O comando Math.random gera um número aleatório
+ // Math.round arredonda o resultado de Math.random
+ var numeroPensado = Math.round(Math.random () * 10);
+ console.log(numeroPensado) // Serve para exibir no console do navegador o número pensado. É uma forma de consegir testar o erro e o acerto.
+ var chute = parseInt(prompt("Digite seu chute! (Número Aleatório)"));
+
+    if(chute == numeroPensado) {
+        document.write("Você acertou!");
+    } else {
+        document.write("Você errou! O número pensado foi " + numeroPensado);
+    };
+
+</script>
+<br>
+
+<!--Criando uma função para sortear um valor entre 0 e um número aleatório:
+
+function sorteia(n) {
+  return Math.round(Math.random () * n);
+}
+
+Quando for definir a variável do sorteio, deve-se colocar o "número aleatório":
+var numeroPensado = sorteia(100)
+-->
+
+<meta charset="UTF-8"> 
+
+<h2>Aula 7 - Repita tarefas</h2>
+
+<script>
+    
+  function pulaLinha() {
+    document.write("<br><br>");
+  };
+  
+  function HTML(texto) {
+    document.write(texto);
+    pulaLinha();
+  };
+
+  var anoCopa = 1930
+
+  while(anoCopa <= 1970) { // "while" é o código para ativar a repetição
+    alert("Teve Copa em " + anoCopa)
+    anoCopa = anoCopa + 4;
+  }
+
+ // Se "while" receber o valor "true", o código vai repetir eternamente.
+ // Por isso, estabelecemos o limite até 2024
+
+ while(anoCopa <= 2024) { // "while" é o código para ativar a repetição
+    HTML("Teve Copa em " + anoCopa)
+    anoCopa = anoCopa + 4;
+  }
+
+</script><br>
+
+<!--Pra usar a função While pra mostrar as informações na tela ao invés do Alert:
+  
+   var anoCopa = 1930
+
+ while(anoCopa <= 2024) {
+    document.write("Teve Copa em " + anoCopa)
+    anoCopa = anoCopa + 4;
+  }
+
+Para usar a função While permitindo que o usuário defina o limite:
+   
+   var limite = parseInt(prompt("Entre com a data limite"))
+   var anoCopa = 1930
+
+ while(anoCopa <= limite) {
+    document.write("Teve Copa em " + anoCopa)
+    anoCopa = anoCopa + 4;
+  }
+-->
+
+<meta charset="UTF-8"> 
+
+<script>
+    
+  function pulaLinha() {
+    document.write("<br><br>");
+  };
+    
+  function HTML(texto) {
+    document.write(texto);
+    pulaLinha();
+  };
+  
+  var multiplicador = 1
+  
+  while(multiplicador <= 10) { 
+    HTML(7 * multiplicador)
+    multiplicador = multiplicador + 1;
+  }
+  
+  HTML("FIM")
+  
+</script><br>
+
+<!--"for" é outro recurso responsável pela repetição.
+Possui uma estrutura com três espaços: for( espaço1; espaço2; espaço 3)
+
+Espaço 1: a variável que define a partir de qual número a repetição começa
+Espaço 2: o limite de repetição
+Espaço 3: Incremento - progressão da repetição
+
+Ou seja, essa requisição:
+
+<script>
+ var multiplicador = 1
+
+  while(multiplicador <= 10) { 
+    document.write(7 * multiplicador)
+    multiplicador = multiplicador + 1;
+  }
+</script><br>
+
+É igual a essa:
+
+<script>
+  for(var multiplicador = 1; multiplicador <= 10; multiplicador = multiplicador + 1) {
+    document.write(7 * multiplicador)
+  }
+</script><br>
+-->
+
+<script>
+  function pulaLinha() {
+    document.write("<br><br>");
+  };
+  
+  function HTML(texto) {
+    document.write(texto);
+    pulaLinha();
+  };
+
+  for(var multiplicador = 1; multiplicador <= 10; multiplicador = multiplicador + 1) {
+    HTML(7 * multiplicador)
+  }
+</script><br>
+
+<!--DICA!
+Toda vez que queremos incrementar de 1 em 1, podemos usar "++".
+Então, podemos substituir
+
+"multiplicador = multiplicador + 1"
+
+por
+
+"multiplicador++"
+-->
+
+Somando idades! Será exibida a média das idades previamente informadas:<br>
+Marcella tem 32 anos<br>
+Raphael tem 29 anos<br>
+Neuzinha tem 61 anos<br>
+Marcelo tem 62 anos <br>
+
+<meta charset="UTF-8"> 
+
+<script>
+    
+  function pulaLinha() {
+    document.write("<br><br>");
+  };
+  
+  function HTML(texto) {
+    document.write(texto);
+    pulaLinha();
+  };
+
+  var idadeMarcella = 32
+  var idadeRaphael = 29
+  var idadeNeuzinha = 61
+  var idadeMarcelo = 62
+
+  var totalIdades = (idadeMarcella + idadeRaphael + idadeNeuzinha + idadeMarcelo);
+  var mediaIdades = totalIdades / 4;
+
+  HTML("A soma das idades previamente informadas é: " + mediaIdades)
+</script><br>
+
+Será exibida a média das idades informadas na caixa de alerta: <br>
+<!--Utilizamos essa estrutura para "acumular" valores-->
+
+<meta charset="UTF-8"> 
+
+<script>
+    
+  function pulaLinha() {
+    document.write("<br><br>");
+  };
+  
+  function HTML(texto) {
+    document.write(texto);
+    pulaLinha();
+  };
+
+  var totalFamiliares = parseInt(prompt("Quantidade de familiares?"));
+  var numero = 1; // Estamos usando o essa variável para o progama saber que deve repetir a pergunta da idade até completar o total de familiares.
+  var totalIdades = 0; // Criamos essa variável para que posteriormente o programa some o valor das outras idades às anteriormente armazenadas
+  // IMPORTANTE! A variável onde os valores estão acumulados precisa ficar FORA da função "While", senão a repetição provocará a "reinilicialização" o valor
+
+
+  while( numero <= totalFamiliares) { // A contagem inicia em 1 (variável "numero") e vai até o valor informado em "totalFamilires"
+       var idade = parseInt(prompt("Informe idade do familiar"));
+       var totalIdades = totalIdades + idade // É graças a essa instruição que as idades vão ser acumuladas na variável "totalIdades", que a princípio se inicia em 0
+    numero++
+  }
+
+  var mediaIdades = totalIdades / totalFamiliares;
+
+  HTML("A média da idade dos familiares é: " + mediaIdades)
+</script><br>
+
+<script>
+
+  function pulaLinha() {
+    document.write("<br>");
+  }
+
+  function mostra(frase) {
+    document.write(frase);
+    pulaLinha();
+  }
+
+  for(var linha = 1; linha <= 3; linha++) {
+    for(var coluna = 1; coluna <= 10; coluna++) {
+      document.write("*");
+    }
+    pulaLinha();
+  }
+
+</script><br><br>
+
+<h2>Aula 8 - Interaja de maneiras diferentes com o usuário</h2>
+
+<meta charset="UTF-8">
+
+<input/> <!--Abre uma janelinha de interação com o usuário dentro da página-->
+<button>Compare com o meu segredo</button> <!--Cria um botão-->
+
+<script>
+  var segredo = 5;
+  var input = document.querySelector("input"); //document.querySelector serve para buscar no código HTML a tag mencionada
+
+  function verifica() {
+
+    if(input.value == segredo) { //captura o valor inserido pelo usário na tag input
+      alert("Você acertou!")
+    } else {
+      alert("Você errou!")
+    }
+  }
+
+  var button = document.querySelector("button");
+  button.onclick = verifica; //programa uma resposta para quando o usuário clica no button
+</script>
+<br>
+
+<!--Eu posso "limpar" o campo de preenchimento para que o usuário faça uma nova tentativa, adicionando a instrução:
+  input.value = ""
+
+Também é possível deixar a barra de texto pronta na caixinha, através da instrução:
+  input.focus(); -->
+
+  <input/> <!--Abre uma janelinha de interação com o usuário dentro da página-->
+  <button>Compare com o meu segredo</button> <!--Cria um botão-->
+  
+  <script>
+    var segredo = 5;
+    var input = document.querySelector("input"); //document.querySelector serve para buscar no código HTML a tag mencionada
+    input.focus();
+
+    function verifica() {
+  
+      if(input.value == segredo) { //captura o valor inserido pelo usário na tag input
+        alert("Você acertou!")
+      } else {
+        alert("Você errou!")
+      }
+
+      input.value = "";
+      input.focus();
+    }
+  
+    var button = document.querySelector("button");
+    button.onclick = verifica; //programa uma resposta para quando o usuário clica no button
+  </script>
+  <br>
+
+<h2>Aula 9 - Trabalhe com muitos dados</h2>
+
+<meta charset="UTF-8">
+
+<input/> 
+<button>Compare com o meu segredo</button> 
+
+<script>
+  var segredos = [5, 7, 10, 2]; //array serve para armazenar um conjunto de dados
+  //os dados do arrey, dentro dos colchetes, devem ser separados por vírgula
+
+  var input = document.querySelector("input"); //document.querySelector serve para buscar no código HTML a tag mencionada
+  input.focus();
+
+  function verifica() {
+
+    if(input.value == segredos) { //captura o valor inserido pelo usário na tag input
+      alert("Você acertou!")
+    } else {
+      alert("Você errou!")
+    }
+
+    input.value = "";
+    input.focus();
+  }
+
+  var button = document.querySelector("button");
+  button.onclick = verifica; //programa uma resposta para quando o usuário clica no button
+</script>
+<br>
+
+<!--Para "imprimir" um dos números dentro de um conjunto array, é necessário colocar a variável com a posição do valor esperado no conjunto
+Por exemplo: No array exemplo["a", "b", "c"]
+- a está na posição 0
+- b está na posição 1
+- c está na posição 2
+
+Para testar se o resultado é verdadeiro, é necessário testar cada uma das posições
+Por exemplo:
+exemplo[0] == f | false
+exemplo[1] == f | false
+exemplo[2] == f | false
+
+exemplo[0] == b | false
+exemplo[1] == b | true
+
+Para não termos que escrever um por um, podemos criar uma repetição com os seguintes parâmetros:
+var posição = n
+exemplo[posição] == chute
+posição++ -->
+
+<input/> 
+<button>Compare com o meu segredo</button> 
+
+<script>
+  var exemplo = [1, 2, 3]; //array serve para armazenar um conjunto de dados
+  //os dados do array, dentro dos colchetes, devem ser separados por vírgula
+
+  var input = document.querySelector("input"); //document.querySelector serve para buscar no código HTML a tag mencionada
+  input.focus();
+
+  function verifica() {
+    for(var posicao = 0; posicao < exemplo.length; posicao++) //lenght é um código para detectar o comprimento do array
+    if(input.value == exemplo[posicao]) { 
+      alert("Você acertou!")
+    } else {
+      alert("Você errou!")
+    }
+
+    input.value = "";
+    input.focus();
+  }
+
+  var button = document.querySelector("button");
+  button.onclick = verifica; 
+</script>
+<br>
+
+<!--Para fazer com que o programa exiba a mensagem de erro somente se nenhum dos segredos for detectado:
+É necessário existir uma variável que aponte quando está certo, para que ela seja usada como condição em "if"
+Por exemplo:-->
+
+<input/> 
+<button>Compare com o meu segredo</button> 
+
+<script>
+  var exemplo = [1, 2, 3]; 
+
+  var input = document.querySelector("input"); 
+  input.focus();
+
+  function verifica() {
+
+    var acertou = false; //determina a variável
+
+    for(var posicao = 0; posicao < exemplo.length; posicao++) {
+      if(input.value == exemplo[posicao]) { 
+      alert("Você acertou!");
+      acertou = true; //insere como true na condição verdadeira
+      break;
+      }    
+    }
+        
+    if (acertou == false) { //insere como false na condição falsa
+      alert("Você errou!")
+    }
+    
+    input.value = "";
+    input.focus();
+  }
+
+  var button = document.querySelector("button");
+  button.onclick = verifica; 
+  
+</script>
+<br>
+
+<!--É possível gerar valores aleatórios no array, utilizando o código Math.round(Math.random())-->
+
+<input/> 
+<button>Compare com o meu segredo</button> 
+
+<script>
+
+  var segredos = [];
+  segredos.push(Math.round(Math.random() * 10)); //função "push" também serve para adicionar valores no array
+  segredos.push(Math.round(Math.random() * 10));
+  segredos.push(Math.round(Math.random() * 10));
+
+  console.log(segredos)
+  
+  var input = document.querySelector("input"); 
+  input.focus();
+
+  function verifica() {
+    var acertou = false 
+
+    for(var posicao = 0; posicao < exemplo.length; posicao++) {
+      if(input.value == exemplo[posicao]) { 
+      alert("Você acertou!");
+      acertou = true; 
+      break;
+      }    
+    }
+        
+    if (acertou == false) { 
+      alert("Você errou!")
+    }
+    
+    input.value = "";
+    input.focus();
+  }
+
+  var button = document.querySelector("button");
+  button.onclick = verifica; 
+</script>
+<br>
+
+<!--Como estamos usando números aleatórios, não é necessário ficar criando várias requisições iguais para chamar o valor aleatório.
+Para automatizar o processo de sorteio, vamos criar uma função:
+
+    function sorteiaNumeros(quantidade) {
+        var segredos = [] //quando a função é chamada, declara uma lista vazia
+        var numero = 1 // variável que serve pra acrescentar um ciclo no limite
+        while(numero <= quantidade) {
+            segredos.push(Math.round(Math.random() * 10))
+            numero++ // instrução que aumenta o cico no limite
+        }
+        return segredos
+    }
+
+    var segredos = sorteiaNumeros(n) // No lugar do N, vai a quantidade de números a serem sorteados
+-->
+
+<input/> 
+<button>Compare com o meu segredo</button> 
+
+<script>
+
+  function sorteiaNumeros(quantidade) {
+    var segredos = [] //quando a função é chamada, declara uma lista vazia
+    var numero = 1 // variável que serve pra acrescentar um ciclo no limite
+    while(numero <= quantidade) {
+      segredos.push(Math.round(Math.random() * 10))
+      numero++ // instrução que aumenta o cico no limite
+    }
+    return segredos
+  }
+
+    var segredos = sorteiaNumeros(3) // No lugar do N, vai a quantidade de
+    console.log(segredos)
+  
+    var input = document.querySelector("input"); 
+    input.focus();
+
+    function verifica() {
+      var acertou = false //determina a variável
+
+      for(var posicao = 0; posicao < segredos.length; posicao++) {
+        if(input.value == segredos[posicao]) { 
+          alert("Você acertou!");
+          acertou = true; 
+          break;
+        }    
+      }
+        
+      if (acertou == false) { 
+        alert("Você errou!")
+      }
+    
+      input.value = "";
+      input.focus();
+    }
+
+    var button = document.querySelector("button");
+    button.onclick = verifica; 
+
+</script>
+<br>
+
+<!--Para evitar números duplicados:-->
+
+<input/> 
+<button>Compare com o meu segredo</button> 
+
+<script>
+
+// Essa será a função responsável por evitar a duplicidade:
+  function sorteiaNumeros(quantidade) {
+
+    var segredos = [] ;
+    var numero = 1 ;
+
+    while(numero <= quantidade) {
+      var numeroAleatorio = Math.round(Math.random() * 10);
+      var repetido = false;
+      
+      if(numeroAleatorio !==0) { //Condiciona a pesquisa de número repetido só acontecer se o número for diferente de 0
+        for(var posicao = 0; posicao < segredos.length; posicao++) {
+          if(segredos[posicao] == numeroAleatorio) {
+            repetido = true; //Se encontrar um número repetido, deve parar, sem selecionar o número
+            break;
+          }
+        }
+        if (repetido == false) { //Se não for repetido, podemos seguir com a escolha do sorteio
+          segredos.push(numeroAleatorio);
+          numero++
+        }    
+      }
+    }
+    
+    return segredos;
+  }
+
+ // A partir daqui é o código normal do sorteio
+  var segredos = sorteiaNumeros(3);
+  console.log(segredos);
+  
+  var input = document.querySelector("input"); 
+  input.focus();
+
+  function verifica() {
+    var acertou = false;
+
+    for(var posicao = 0; posicao < segredos.length; posicao++) {
+      if(input.value == segredos[posicao]) { 
+        alert("Você acertou!");
+        acertou = true; 
+        break;
+      }    
+    }
+        
+    if (acertou == false) { 
+      alert("Você errou!")
+    }
+    
+    input.value = "";
+    input.focus();
+  }
+
+  var button = document.querySelector("button");
+  button.onclick = verifica; 
+
+</script>
+<br>
+

@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<script>
+       function pulaLinha() {
+      document.write("<br><br>");
+    };
+  
+  function HTML(texto) {
+      document.write(texto);
+      pulaLinha();
+    };
+
+ // O comando Math.random gera um número aleatório
+ // Math.round arredonda o resultado de Math.random
+ var numeroPensado = Math.round(Math.random () * 10);
+ console.log(numeroPensado) // Serve para exibir no console do navegador o número pensado. É uma forma de consegir testar o erro e o acerto.
+ var chute = parseInt(prompt("Digite seu chute!"));
+
+    if(chute == numeroPensado) {
+        document.write("Você acertou!");
+    } else {
+        document.write("Você errou! O número pensado foi " + numeroPensado);
+    };
+
+</script>
+<br>
+
+<!--Criando uma função para sortear um valor entre 0 e um número aleatório:
+
+function sorteia(n) {
+  return Math.round(Math.random () * n);
+}
+
+Quando for definir a variável do sorteio, deve-se colocar o "número aleatório":
+var numeroPensado = sorteia(100)
+-->

@@ -1,0 +1,367 @@
+<meta charset="UTF-8"> <!--essa tag serve para dar uma "pista" para o navegador de como ele deve interpretar os caracteres.
+Isso impede que os assentos apareçam quebrados
+Charset é um "atributo"-->
+
+<h2>Aula 1 - Comece a programar hoje</h2>
+
+<h3>Meu primeiro teste!</h3> <!--tag para destacar títulos-->
+<br> <!-- tag que serve para pular linha-->
+Seria isso um programa? Descubra visitando o Alura <a href="https://www.alura.com.br/">aqui</a>!
+<!--<a> é uma "tag âncora", usada para criar links-->
+
+<!--Até aqui, estamos programando em HTML. Vamos passar para JavaScript.
+    O navegador é "poliglota", mas precisa ser sinalizado da línguagem utilizada. 
+    Para isso, vamos colocar nosso comando dentro das tags <script></script>  -->
+
+<h2>Aula 2 - Comunique-se com o usuário</h2>
+
+<script>
+    alert("Isso sim é um programa") //Em JavaScript, se você quer criar um texto, ele deve ser colocado dentro de aspas
+</script>
+
+<!--HTML é uma linguagem estática (não muda) e utiliza marcadores: <> (as tags)--
+    Já o JavaScript é uma linguagem de programação dinâmica-->
+
+<!--Se quiser inserir um texto HTML dentro do "mundo" Javascript, deve-se inserir a rquisição document.write("") dentro das tags <script>-->    
+
+<script>
+    document.write("Esta parte está sendo escrita em formato HTML dentro do mundo Javascript");
+    document.write("<br>");
+    document.write("Pulei uma linha usando a tag br dentro do parâmetro document.write");
+</script>
+<br><br>
+<!--Ao usar o símbolo de + no Javascript, fora das aspas ele pode realizar uma soma ou uma CONCATENAÇÃO. 
+Ou seja, ele vai juntar dois valores, desde que estejam no mesmo formato (string, número, etc)-->
+
+<script>
+    document.write("Concatenação utilizando o sinal de + com dois textos (string): ");
+    document.write("10" + "20");
+    document.write("<br>");
+    document.write("Concatenação utilizando o sinal de + com texto (string) e número: ");
+    document.write("10" + 20);
+    document.write("<br>");
+    document.write("Soma utilizando o sinal de + com dois números, sem aspas: ");
+    document.write(10 + 20);
+    document.write("<br>");
+    document.write("Utilizando o sinal de + com dois números, com aspas: ");
+    document.write("10 + 20");
+</script>
+<br><br>
+<!--Uma outra forma de usar os espaços HTML dentro do mundo JavaScript é utilizando a contenação.
+Por exemplo:-->
+
+<script>
+    document.write("Pular uma linha utilizando a " + "<br>");
+    document.write("CONCATENAÇÃO");
+</script>
+<br><br>
+
+<h2>Aula 3 - Torne seu programa dinâmico com variáveis</h2>
+
+<!--Variável: Tudo aquilo que varia, muda.
+Se eu estou fazendo um código que usa muitas vezes uma informação variável, como datas, eu posso utilizar o 
+parámetro "var" para alterar em um só lugar a informação que repete no código. Por exempo:-->
+
+<script>
+
+    var ano = 2024
+
+    document.write("Marcella tem " + (ano - 1992) + " anos");
+    document.write("<br>");
+    document.write("Raphael tem " + (ano - 1995) + " anos");
+    document.write("<br>");
+    document.write("Mirna tem " + (ano - 1999) + " anos");
+    document.write("<br>" + "<br>");
+
+    // Eu posso retribuir o valor de uma variável mais de uma vez dentro do código, para isso, basta reescrevê-la, com = novo valor.
+    // O parâmetro "var" é utilizando somente na primeira vez em que uma váriavel é definida
+    // Por exemplo:
+
+    ano = 2026
+
+    document.write("Daqui 2 anos, Marcella terá " + (ano - 1992) + " anos");
+    document.write("<br>");
+    document.write("Daqui 2 anos, Rapahel terá " + (ano - 1995) + " anos");
+    document.write("<br>");
+    document.write("Daqui 2 anos, Mirna terá " + (ano - 1999) + " anos");
+    document.write("<br>" + "<br>");
+
+    // Soma e concatenação também funcionam na variável
+    // Por exemplo:
+
+    ano = (2024 + 4)
+
+    document.write("Daqui 4 anos, Marcella terá " + (ano - 1992) + " anos");
+    document.write("<br>");
+    document.write("Daqui 4 anos, Rapahel terá " + (ano - 1995) + " anos");
+    document.write("<br>");
+    document.write("Daqui 4 anos, Mirna terá " + (ano - 1999) + " anos");
+    document.write("<br>");
+</script>
+<br><br>
+
+<script>
+
+    var media = (32 + 29 + 25)/3;
+
+    document.write("A média das idades da Marcella, do Raphael e da Mirna é " + media);
+    document.write("<br>");
+    
+    // É possivel arredondar o valor, utilizando o parâmetro
+    // Math.round
+
+    document.write("Arredondando o valor, a média é " + Math.round(media));
+    document.write("<br>" + "<br>");
+   
+    // Também é possível usar variáveis dentro de variáveis
+
+    document.write("Também é possível usar variáveis dentro de variáveis. É isso que farei agora:");
+    document.write("<br>");
+
+    var idadeMarcella = 32;
+    var idadeRaphael = 29;
+    var idadeMirna = 25;
+
+    var mediaNomes = (idadeMarcella + idadeRaphael + idadeMirna)/3;
+
+    document.write("A média das idades da Marcella, do Raphael e da Mirna é " + mediaNomes);
+    document.write("<br>");
+</script>
+<br><br>
+
+<h2>Aula 4 - Crie suas próprias funcionalidades</h2>
+
+<!--É possível criar suas próprias funcionalidades!
+As funções criadas devem ficar no começo do código.
+Utiliza-se o parâmetro function NovaFunção() {parâmetro original} -->
+
+<script>
+
+    function pulaLinha() {
+        document.write("<br>");
+        };
+
+    document.write("Primeira linha");
+    pulaLinha()
+    document.write("Segunda linha");
+    pulaLinha(); pulaLinha();
+    
+    
+    function HTML(texto) {
+        document.write(texto)
+    };
+  
+    HTML("Estou escrevendo um texto dentro de uma função que criei");
+</script>
+<br><br>
+
+<!--É possível colocar mais de um parâmetro dentro da função!
+É possível colocar uma função dentro de outra! -->
+
+<script>
+
+    function pula2Linhas() {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+    };
+    
+    function TextoLinha(texto) {
+        document.write(texto);
+        pula2Linhas();
+    };
+  
+    TextoLinha("Texto 1");
+    TextoLinha("Texto 2 (Deve existir duas linhas puladas entre esses textos)");
+</script>
+<br><br>
+
+<!--A tag <hr> coloca o traço na linha pulada. Por exemplo:-->
+
+<script>
+
+    function pulaLinha() {
+        document.write("<br><hr>");
+        };
+
+    document.write("Primeira linha");
+    pulaLinha()
+    document.write("Segunda linha");
+    pulaLinha();
+    
+</script>
+<br><br>
+
+<script>
+document.write("<hr>");
+document.write("Primeira linha");
+document.write("<br>");
+document.write("<hr>");
+document.write("Segunda linha");
+document.write("<br>");
+document.write("<hr>");
+</script>
+<br><br>
+
+<h2>Aula 5 - Pratique resolvendo problemas do seu dia a dia</h2>
+
+<meta charset="UTF-8">
+<script>
+
+    function pulaLinha() {
+        document.write("<br><br>");
+    };
+    
+    function HTML(texto) {
+        document.write(texto);
+        pulaLinha();
+    };
+
+ var pesoMarcella = 58;
+ var alturaMarcella = 1.65;
+ var imcMarcella = pesoMarcella / (alturaMarcella * alturaMarcella);
+ HTML("O IMC da Marcella é igual a " + imcMarcella);
+
+ var pesoRapha = 85;
+ var alturaRapha = 1.70;
+ var imcRapha = pesoRapha / (alturaRapha * alturaRapha);
+ HTML("O IMC do Rapha é igual a " + imcRapha);
+</script>
+<br>
+
+<meta charset="UTF-8">
+<script>
+      function pulaLinha() {
+        document.write("<br><br>");
+    };
+    
+    function HTML(texto) {
+        document.write(texto);
+        pulaLinha();
+    };
+
+    function calculaImc(peso, altura) {
+        var imc = peso / (altura * altura);
+        HTML("O IMC calculado é " + imc);
+    }
+
+ calculaImc (58, 1.65);
+ calculaImc (85, 1.70);
+
+
+</script>
+<br>
+
+<!--O script abaixo foi construído com a finalidade de somar os IMCs.
+O problema dessa solução é que se eu quiser alterar o número de pessoas no cálculo, será necessário ficar alterando a função constantemente.-->
+
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+      document.write("<br><br>");
+  };
+  
+  function HTML(texto) {
+      document.write(texto);
+      pulaLinha();
+  };
+
+  function calculaImc(peso1, altura1, peso2, altura2) {
+      var imc1 = peso1 / (altura1 * altura1);
+      var imc2 = peso2 / (altura2 * altura2);
+      var imcTotal = imc1 + imc2
+      HTML("A soma dos IMCs é " + imcTotal);
+  }
+
+calculaImc (58, 1.65, 85, 1.70);
+
+</script>
+<br>
+
+<!--A instrução "return" retorna na parte à esquerda de uma equação aquilo que for definido.
+Dessa forma, basta definir o novo variável, sem precisar alterar a função.
+Por exemplo:-->
+
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+      document.write("<br><br>");
+    };
+  
+  function HTML(texto) {
+      document.write(texto);
+      pulaLinha();
+    };
+
+  function calculaImc(peso, altura) {
+      var imc = peso / (altura * altura);
+      return imc;
+    };
+
+ var imcMarcellaR = calculaImc(58, 1.65);
+ var imcRaphaR = calculaImc(85, 1.70);
+
+ HTML("O IMC da Marcella é igual a " + imcMarcellaR);
+ HTML("O IMC do Rapha é igual a " + imcRaphaR);
+
+
+</script>
+<br>
+
+<!--Uma outra forma de escrever essa mesma função utilizando a instrução "return" é colocar o return direto no lugar da variável com a fórmula desejada.
+Da seguinte forma: return = peso / (altura * altura)-->
+
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+      document.write("<br><br>");
+    };
+  
+  function HTML(texto) {
+      document.write(texto);
+      pulaLinha();
+    };
+
+  function calculaImc(peso, altura) {
+      return peso / (altura * altura);
+    };
+
+ var imcFulano = calculaImc(65, 1.68);
+ var imcCicrano = calculaImc(102, 1.87);
+ var totalImc = imcFulano + imcCicrano;
+ var totalOutraForma = calculaImc(65, 1.68) + calculaImc(102, 1.87);
+
+ HTML("O IMC do Fulano é igual a " + imcFulano);
+ HTML("O IMC do Cicrano é igual a " + imcCicrano);
+ HTML("A soma dos IMCs é " + totalImc);
+ HTML("A soma dos IMCs é " + totalOutraForma);
+
+</script>
+<br>
+
+<!--Interagindo com dados informados pelo usuário:-->
+
+<meta charset="UTF-8">
+<script>
+       function pulaLinha() {
+      document.write("<br><br>");
+    };
+  
+  function HTML(texto) {
+      document.write(texto);
+      pulaLinha();
+    };
+
+  function calculaImc(peso, altura) {
+      return peso / (altura * altura);
+    };
+
+ var nome = prompt("Informe seu nome");
+ var alturaInformada =  prompt("Informe sua altura");
+ var pesoInformado =  prompt("Informe seu peso");
+ var imcUsuário = calculaImc(65, 1.68);
+
+ HTML("O IMC de " + nome +", com base na altura e peso informados é " + imcUsuário);
+
+</script>
+<br>
